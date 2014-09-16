@@ -27,7 +27,7 @@ if has('win32') || has('win64')
     " fallback into cp1252 instead of eg. iso-8859-15.
     " Newer Windows files might contain utf-8 or utf-16 LE so we might
     " want to try them first.
-    set fileencodings=ucs-bom,utf-8,utf-16le,cp1252,iso-8859-15
+    set fileencodings=ucs-bom,utf-8,utf-16le,cp1252,iso-8859-15,chinese,euc-jp,gb18030,gbk,big5,latin1
   endif
 endif
 

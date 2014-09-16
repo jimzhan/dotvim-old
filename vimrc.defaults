@@ -6,8 +6,10 @@
 " ---------------------------------------------------------------------------
 set nocompatible        " Must be first line
 set background=dark     " Assume a dark background
+" The default leader is '\'.
+let mapleader = ','
 
-" Windows Compatible 
+" Windows Compatible
 " ---------------------------------------------------------------------------
 " On Windows, also use '.vim' instead of 'vimfiles'; this makes synchronization
 " across (heterogeneous) systems easier.
@@ -69,8 +71,8 @@ endif
 " Most prefer to automatically switch to the current file directory when
 " a new buffer is opened; to prevent this behavior, add the following to
 " your .vimrc.before.local file:
-"   let g:spf13_no_autochdir = 1
-if !exists('g:spf13_no_autochdir')
+"   let g:consts_no_autochdir = 1
+if !exists('g:consts_no_autochdir')
     autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
     " Always switch to the current file directory
 endif
@@ -93,8 +95,8 @@ au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 " http://vim.wikia.com/wiki/Restore_cursor_to_file_position_in_previous_editing_session
 " Restore cursor to file position in previous editing session
 " To disable this, add the following to your .vimrc.before.local file:
-"   let g:spf13_no_restore_cursor = 1
-if !exists('g:spf13_no_restore_cursor')
+"   let g:consts_no_restore_cursor = 1
+if !exists('g:consts_no_restore_cursor')
     function! ResCur()
         if line("'\"") <= line("$")
             normal! g`"
@@ -117,8 +119,8 @@ if has('persistent_undo')
 endif
 
 " To disable views add the following to your .vimrc.before.local file:
-"   let g:spf13_no_views = 1
-if !exists('g:spf13_no_views')
+"   let g:consts_no_views = 1
+if !exists('g:consts_no_views')
     " Add exclusions to mkview and loadview
     " eg: *.*, svn-commit.tmp
     let g:skipview_files = [
@@ -137,14 +139,6 @@ set cursorline                  " Highlight current line
 highlight clear SignColumn      " SignColumn should match background
 highlight clear LineNr          " Current line number row will have same background color in relative mode
 "highlight clear CursorLineNr    " Remove highlight color from current line number
-"
-"
-" toggle folding using `space`. (spf13 use it to open ONLY).
-"   do not fold lines under 5.
-"set foldlevel=9
-"set foldminlines=6
-nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc':'zo')<CR>
-
 
 if has('cmdline_info')
     set ruler                   " Show the ruler
@@ -182,12 +176,12 @@ set scrolloff=3                 " Minimum lines to keep above and below cursor
 set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 
-" toggle folding using `space`. (spf13 use it to open ONLY).
+" toggle folding using `space`.
 "   do not fold lines under 5.
 "set foldlevel=9
 "set foldminlines=6
-"set foldenable                  " Auto fold code
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc':'zo')<CR>
+
 
 
 " ---------------------------------------------------------------------------
@@ -208,11 +202,11 @@ set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
 " Remove trailing whitespaces and ^M chars
 " To disable the stripping of whitespace, add the following to your
 " .vimrc.before.local file:
-"   let g:spf13_keep_trailing_whitespace = 1
+"   let g:consts_keep_trailing_whitespace = 1
 autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> if !exists('g:spf13_keep_trailing_whitespace') | call StripTrailingWhitespace() | endif
 "autocmd FileType go autocmd BufWritePre <buffer> Fmt
 autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
-autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType haskell,html,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2
 " preceding line best in a plugin but here for now.
 
 autocmd BufNewFile,BufRead *.coffee set filetype=coffee
@@ -226,8 +220,6 @@ autocmd FileType haskell,rust setlocal nospell
 " ---------------------------------------------------------------------------
 "  Key Mappings
 " ---------------------------------------------------------------------------
-" The default leader is '\'.
-let mapleader = ','
 " Code folding options
 nmap <leader>f0 :set foldlevel=0<CR>
 nmap <leader>f1 :set foldlevel=1<CR>
@@ -243,7 +235,6 @@ nmap <leader>f9 :set foldlevel=9<CR>
 :nmap <C-l>     :bnext<cr>
 :nmap <C-h>     :bprevious<cr>
 :nmap <C-k>     :bdelete<cr>
-":nmap <C-t>     :MBEToggle<cr>
 
 
 " ---------------------------------------------------------------------------
@@ -288,10 +279,10 @@ function! InitializeDirectories()
     " To specify a different directory in which to place the vimbackup,
     " vimviews, vimundo, and vimswap files/directories, add the following to
     " your .vimrc.before.local file:
-    "   let g:spf13_consolidated_directory = <full path to desired directory>
-    "   eg: let g:spf13_consolidated_directory = $HOME . '/.vim/'
-    if exists('g:spf13_consolidated_directory')
-        let common_dir = g:spf13_consolidated_directory . prefix
+    "   let g:consts_consolidated_directory = <full path to desired directory>
+    "   eg: let g:consts_consolidated_directory = $HOME . '/.vim/'
+    if exists('g:consts_consolidated_directory')
+        let common_dir = g:consts_consolidated_directory . prefix
     else
         let common_dir = parent . '/.' . prefix
     endif

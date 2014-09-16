@@ -1,0 +1,100 @@
+" ---------------------------------------------------------------------------
+"  Fugitive for GIT
+" ---------------------------------------------------------------------------
+Plugin 'tpope/vim-fugitive'
+
+
+" ---------------------------------------------------------------------------
+"  NerdTree
+" ---------------------------------------------------------------------------
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+map <C-o>   <plug>NERDTreeTabsToggle<CR>
+let NERDTreeShowBookmarks = 1
+let NERDTreeIgnore=['\.DS_Store', '\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+
+
+" ---------------------------------------------------------------------------
+"  NERDCommentor
+" ---------------------------------------------------------------------------
+Plugin 'scrooloose/nerdcommenter'
+
+
+" ---------------------------------------------------------------------------
+"  Ctrl-P Files Finder
+" ---------------------------------------------------------------------------
+Plugin 'kien/ctrlp.vim'
+
+
+" ---------------------------------------------------------------------------
+"  Status Line Enhancement
+" ---------------------------------------------------------------------------
+Plugin 'bling/vim-airline'
+let g:airline#extensions#tabline#enabled = 1
+
+
+
+" ---------------------------------------------------------------------------
+"  Source Code Tags
+" ---------------------------------------------------------------------------
+Plugin 'majutsushi/tagbar'
+let g:tagbar_ctags_bin='/usr/local/bin/ctags'
+let g:tagbar_width=30
+autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx,*.go call tagbar#autoopen()
+if isdirectory(expand("~/.vim/bundle/tagbar/"))
+    nnoremap <silent> <Leader>tt :TagbarToggle<CR>
+
+    " If using go please install the gotags program using the following
+    " go install github.com/jstemmer/gotags
+    " And make sure gotags is in your path
+    let g:tagbar_type_go = {
+        \ 'ctagstype' : 'go',
+        \ 'kinds'     : [  'p:package', 'i:imports:1', 'c:constants', 'v:variables',
+            \ 't:types',  'n:interfaces', 'w:fields', 'e:embedded', 'm:methods',
+            \ 'r:constructor', 'f:functions' ],
+        \ 'sro' : '.',
+        \ 'kind2scope' : { 't' : 'ctype', 'n' : 'ntype' },
+        \ 'scope2kind' : { 'ctype' : 't', 'ntype' : 'n' },
+        \ 'ctagsbin'  : 'gotags',
+        \ 'ctagsargs' : '-sort -silent'
+        \ }
+endif
+
+
+" ---------------------------------------------------------------------------
+"  Golang Supports
+" ---------------------------------------------------------------------------
+Plugin 'fatih/vim-go'
+let g:go_fmt_command = "goimports"
+" Go related mappings
+"au FileType go nmap <Leader>i <Plug>(go-info)
+"au FileType go nmap <Leader>gd <Plug>(go-doc)
+"au FileType go nmap <Leader>r <Plug>(go-run)
+"au FileType go nmap <Leader>b <Plug>(go-build)
+"au FileType go nmap <Leader>t <Plug>(go-test)
+"au FileType go nmap gd <Plug>(go-def-tab)
+
+" ---------------------------------------------------------------------------
+"  Static Syntax Checking
+" ---------------------------------------------------------------------------
+Plugin 'scrooloose/syntastic'
+"nmap <Leader>sc <Plug>(SyntasticCheck)
+
+
+" ---------------------------------------------------------------------------
+"  Autocomplete Supports
+" ---------------------------------------------------------------------------
+Plugin 'ervandew/supertab'
+let g:SuperTabDefaultCompletionType = "context"
+
+
+" ---------------------------------------------------------------------------
+"  File Templates
+" ---------------------------------------------------------------------------
+Plugin 'jimzhan/vim-template'
+
+
+" ---------------------------------------------------------------------------
+"  Color Themes
+" ---------------------------------------------------------------------------
+Plugin 'tomasr/molokai'

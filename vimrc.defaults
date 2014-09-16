@@ -38,8 +38,8 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
-if filereadable(expand("~/.vimrc.plugins"))
-    source ~/.vimrc.plugins
+if filereadable(expand("~/.vimrc.bundles"))
+    source ~/.vimrc.bundles
 endif
 call vundle#end()            " required
 
@@ -130,17 +130,8 @@ endif
 " ---------------------------------------------------------------------------
 "  Vim UI
 " ---------------------------------------------------------------------------
-if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
-    let g:solarized_termcolors=256
-    let g:solarized_termtrans=1
-    let g:solarized_contrast="normal"
-    let g:solarized_visibility="normal"
-    color solarized             " Load a colorscheme
-endif
-
 set tabpagemax=15               " Only show 15 tabs
 set showmode                    " Display the current mode
-
 set cursorline                  " Highlight current line
 
 highlight clear SignColumn      " SignColumn should match background
@@ -261,8 +252,8 @@ nmap <leader>f9 :set foldlevel=9<CR>
 " GVIM- (here instead of .gvimrc)
 if has('gui_running')
     set lines=80                " 80 lines height for workspace
+    set columns=130             " 130 columns width for workspace
     set guioptions-=T           " Remove the toolbar
-    set guifont=Pragmata:h16
 
     if has("gui_macvim")
         set guifont=PragmataPro:h14,Menlo\ Regular:h14

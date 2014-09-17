@@ -98,10 +98,12 @@ Plugin 'scrooloose/syntastic'
 "map <Leader>sc  <Plug>(SyntasticCheck)
 
 " ---------------------------------------------------------------------------
-"  Autocomplete Supports
+"  Editing/Autocomplete Supports
 " ---------------------------------------------------------------------------
 Plugin 'ervandew/supertab'
 let g:SuperTabDefaultCompletionType = "context"
+
+Plugin 'jiangmiao/auto-pairs'
 
 
 " ---------------------------------------------------------------------------

@@ -402,15 +402,13 @@ let pyindent_open_paren="&sw*2"
 " ---------------------------------------------------------------------------
 " Setup Bundle Support
 " ---------------------------------------------------------------------------
-" The next three lines ensure that the ~/.vim/bundle/ system works
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+set rtp+=~/.vim/Vundle
+call vundle#rc("$HOME/.vim/Vundle")
 Plugin 'gmarik/Vundle.vim'
 if filereadable(expand("~/.vimrc.bundles"))
     source ~/.vimrc.bundles
 endif
-call vundle#end()            " required
 filetype plugin indent on   " Automatically detect file types.
 
 

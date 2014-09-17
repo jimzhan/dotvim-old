@@ -1,8 +1,9 @@
+# But not the Vundle
+!*bundle/Vundle.vim
+!*bundle/Vundle.vim/*
+
+
 # Exclude the bundle directory
 .netrwhist
 *bundle
 *bundle/*
-
-# But not the Vundle
-!*bundle/Vundle.vim
-!*bundle/Vundle.vim/*

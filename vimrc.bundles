@@ -38,20 +38,20 @@ nnoremap <Leader>nt     :call ToggleNERDTreeAndTagbar()<CR>
 
 
 " ---------------------------------------------------------------------------
-"  NERDCommentor
+"  Comment Helper: NERDCommentor
 " ---------------------------------------------------------------------------
 Plugin 'scrooloose/nerdcommenter'
 
 
 " ---------------------------------------------------------------------------
-"  Status Line Enhancement
+"  Status: Status Line Enhancement
 " ---------------------------------------------------------------------------
 Plugin 'bling/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
 
 
 " ---------------------------------------------------------------------------
-"  Source Code Tags
+"  Tags: Source Code Tags
 " ---------------------------------------------------------------------------
 Plugin 'majutsushi/tagbar'
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
@@ -75,28 +75,28 @@ let g:tagbar_type_go = {
 
 
 " ---------------------------------------------------------------------------
-"  Golang Supports
+"  Languages: Golang Supports
 " ---------------------------------------------------------------------------
 Plugin 'fatih/vim-go'
 let g:go_fmt_command = "goimports"
 
 
 " ---------------------------------------------------------------------------
-"  Static Syntax Checking
+"  Syntax: Static Syntax Checking
 " ---------------------------------------------------------------------------
 "Plugin 'scrooloose/syntastic'
 "map <Leader>sc  <Plug>(SyntasticCheck)
 
 
 " ---------------------------------------------------------------------------
-"  Editing/Autocomplete Supports
+"  Editing: Pairing + Multiple Curosr (like Sublime)
 " ---------------------------------------------------------------------------
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'terryma/vim-multiple-cursors'
 
 
 " ---------------------------------------------------------------------------
-"  Autocomplete & Code Snippets
+"  Authocomplete: Autocomplete & Code Snippets
 " ---------------------------------------------------------------------------
 Plugin 'Shougo/neocomplete'
 " Disable preview buffer at the bottom
@@ -142,19 +142,19 @@ endif
 
 
 " ---------------------------------------------------------------------------
-"  File Templates
+"  Personal: File Templates
 " ---------------------------------------------------------------------------
 Plugin 'jimzhan/vim-template'
 
 
 " ---------------------------------------------------------------------------
-"  Color Themes
+"  Themes: Color Themes
 " ---------------------------------------------------------------------------
 Plugin 'tomasr/molokai'
 
 
 " ***************************************************************************
-"  Plugin Helpers
+"  Functions: Plugin Helpers
 " ***************************************************************************
 function! ToggleNERDTreeAndTagbar()
     let w:jumpbacktohere = 1

@@ -27,7 +27,6 @@
 " ---------------------------------------------------------------------------
 set nocompatible        " Must be first line
 set background=dark     " Assume a dark background
-let mapleader = ','     " The default Leader is '\'.
 
 " Windows Compatible
 " ---------------------------------------------------------------------------
@@ -53,27 +52,15 @@ if has('win32') || has('win64')
   endif
 endif
 
-" Setup Bundle Support
-" ---------------------------------------------------------------------------
-" The next three lines ensure that the ~/.vim/bundle/ system works
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-if filereadable(expand("~/.vimrc.bundles"))
-    source ~/.vimrc.bundles
-endif
-call vundle#end()            " required
-
 
 " ---------------------------------------------------------------------------
 "  General
 " ---------------------------------------------------------------------------
 let g:rehash256=1
 set background=dark         " Assume a dark background
-" if !has('gui')
-    "set term=$TERM          " Make arrow and other keys work
-" endif
+if !has('gui')
+  set term=$TERM            " Make arrow and other keys work
+endif
 filetype plugin indent on   " Automatically detect file types.
 syntax on                   " Syntax highlighting
 set mouse=a                 " Automatically enable mouse usage
@@ -218,13 +205,13 @@ set splitright                  " Puts new vsplit windows to the right of the cu
 set splitbelow                  " Puts new split windows to the bottom of the current
 "set matchpairs+=<:>             " Match, to be used with %
 set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
-"set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
+set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
 " Remove trailing whitespaces and ^M chars
 " To disable the stripping of whitespace, add the following to your
 " .vimrc.before.local file:
 "   let g:consts_keep_trailing_whitespace = 1
-autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> if !exists('g:spf13_keep_trailing_whitespace') | call StripTrailingWhitespace() | endif
-"autocmd FileType go autocmd BufWritePre <buffer> Fmt
+autocmd FileType c,cpp,coffee,html,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> if !exists('g:consts_keep_trailing_whitespace') | call StripTrailingWhitespace() | endif
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
 autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
 autocmd FileType haskell,html,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2
 " preceding line best in a plugin but here for now.
@@ -240,6 +227,7 @@ autocmd FileType haskell,rust setlocal nospell
 " ---------------------------------------------------------------------------
 "  Key Mappings
 " ---------------------------------------------------------------------------
+let mapleader = ','     " The default Leader is '\'.
 " Code folding options
 nmap <leader>f0 :set foldlevel=0<CR>
 nmap <leader>f1 :set foldlevel=1<CR>
@@ -265,6 +253,7 @@ if has('gui_running')
     set lines=80                " 80 lines height for workspace
     set columns=130             " 130 columns width for workspace
     set guioptions-=T           " Remove the toolbar
+    set shell=/bin/bash         " Use basic bash ONLY.
 
     if has("gui_macvim")
         set guifont=PragmataPro:h14,Menlo\ Regular:h14
@@ -370,40 +359,6 @@ function! s:RunShellCommand(cmdline)
     1
 endfunction
 
-function! ToggleNERDTreeAndTagbar()
-    let w:jumpbacktohere = 1
-
-    " Detect which plugins are open
-    if exists('t:NERDTreeBufName')
-        let nerdtree_open = bufwinnr(t:NERDTreeBufName) != -1
-    else
-        let nerdtree_open = 0
-    endif
-    let tagbar_open = bufwinnr('__Tagbar__') != -1
-
-    " Perform the appropriate action
-    if nerdtree_open && tagbar_open
-        NERDTreeClose
-        TagbarClose
-    elseif nerdtree_open
-        TagbarOpen
-    elseif tagbar_open
-        NERDTree
-    else
-        NERDTree
-        TagbarOpen
-    endif
-
-    " Jump back to the original window
-    for window in range(1, winnr('$'))
-        execute window . 'wincmd w'
-        if exists('w:jumpbacktohere')
-            unlet w:jumpbacktohere
-            break
-        endif
-    endfor
-endfunction
-
 command! -complete=file -nargs=+ Shell call s:RunShellCommand(<q-args>)
 " e.g. Grep current file for <search_term>: Shell grep -Hn <search_term> %
 
@@ -442,6 +397,21 @@ endfunction
 
 let pyindent_nested_paren="&sw*2"
 let pyindent_open_paren="&sw*2"
+
+
+" ---------------------------------------------------------------------------
+" Setup Bundle Support
+" ---------------------------------------------------------------------------
+" The next three lines ensure that the ~/.vim/bundle/ system works
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+if filereadable(expand("~/.vimrc.bundles"))
+    source ~/.vimrc.bundles
+endif
+call vundle#end()            " required
+filetype plugin indent on   " Automatically detect file types.
 
 
 " ---------------------------------------------------------------------------

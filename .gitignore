@@ -1,7 +1,12 @@
+# --------------------------------
+# Ignore Everying Globally First 
+# --------------------------------
 /*
 
+# ---------------
+# Things Needed 
+# ---------------
 !/vim
-/vim/bundle/*
 !/vim/bundle/Vundle.vim
 !/vim/neosnippets
 !/vim/snippets
@@ -11,3 +16,8 @@
 !vimrc
 !vimrc.bundles
 !vimrc.defaults
+# ---------------
+
+# Ignore Bundles
+# ---------------
+/vim/bundle/*

@@ -1,9 +1,13 @@
-# But not the Vundle
-!*bundle/Vundle.vim
-!*bundle/Vundle.vim/*
+/*
 
-
-# Exclude the bundle directory
-.netrwhist
-*bundle
-*bundle/*
+!/vim
+/vim/bundle/*
+!/vim/bundle/Vundle.vim
+!/vim/neosnippets
+!/vim/snippets
+!LICENSE
+!link
+!README.md
+!vimrc
+!vimrc.bundles
+!vimrc.defaults

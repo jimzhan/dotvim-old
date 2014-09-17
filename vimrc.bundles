@@ -18,42 +18,49 @@
 " limitations under the License.
 " ------------------------------------------------------------
 
+" ---------------------------------------------------------------------------
+"  Fundamental Envionment
+" ---------------------------------------------------------------------------
+
 
 " ---------------------------------------------------------------------------
 "  GIT Manager: Fugitive
 " ---------------------------------------------------------------------------
-Plugin 'tpope/vim-fugitive'
+Bundle 'tpope/vim-fugitive'
 
 
 " ---------------------------------------------------------------------------
-"  File Manager: NERDTree + CtrlP
+"  File Manager: NERDTree + Ctrlp
 " ---------------------------------------------------------------------------
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'jistr/vim-nerdtree-tabs'
 map <C-o>   <plug>NERDTreeTabsToggle<CR>
 let NERDTreeShowBookmarks = 1
 let NERDTreeIgnore=['\.DS_Store', '\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
 nnoremap <Leader>nt     :call ToggleNERDTreeAndTagbar()<CR>
+" Let Ctrlp work with NERDTree
+let g:NERDTreeChDirMode       = 2
+let g:ctrlp_working_path_mode = 'rw'
 
 
 " ---------------------------------------------------------------------------
 "  Comment Helper: NERDCommentor
 " ---------------------------------------------------------------------------
-Plugin 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdcommenter'
 
 
 " ---------------------------------------------------------------------------
 "  Status: Status Line Enhancement
 " ---------------------------------------------------------------------------
-Plugin 'bling/vim-airline'
+Bundle 'bling/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
 
 
 " ---------------------------------------------------------------------------
 "  Tags: Source Code Tags
 " ---------------------------------------------------------------------------
-Plugin 'majutsushi/tagbar'
+Bundle 'majutsushi/tagbar'
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 let g:tagbar_width=30
 autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx,*.go call tagbar#autoopen()
@@ -77,28 +84,28 @@ let g:tagbar_type_go = {
 " ---------------------------------------------------------------------------
 "  Languages: Golang Supports
 " ---------------------------------------------------------------------------
-Plugin 'fatih/vim-go'
+Bundle 'fatih/vim-go'
 let g:go_fmt_command = "goimports"
 
 
 " ---------------------------------------------------------------------------
 "  Syntax: Static Syntax Checking
 " ---------------------------------------------------------------------------
-"Plugin 'scrooloose/syntastic'
+"Bundle 'scrooloose/syntastic'
 "map <Leader>sc  <Plug>(SyntasticCheck)
 
 
 " ---------------------------------------------------------------------------
 "  Editing: Pairing + Multiple Curosr (like Sublime)
 " ---------------------------------------------------------------------------
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'terryma/vim-multiple-cursors'
+Bundle 'jiangmiao/auto-pairs'
+Bundle 'terryma/vim-multiple-cursors'
 
 
 " ---------------------------------------------------------------------------
 "  Authocomplete: Autocomplete & Code Snippets
 " ---------------------------------------------------------------------------
-Plugin 'Shougo/neocomplete'
+Bundle 'Shougo/neocomplete'
 " Disable preview buffer at the bottom
 set completeopt-=preview
 " Disable AutoComplPop.
@@ -116,12 +123,12 @@ if !exists('g:neocomplete#keyword_patterns')
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 " ---------------------------------------------------------------------------
-Plugin 'Shougo/neosnippet.vim'
+Bundle 'Shougo/neosnippet.vim'
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory='$HOME/.vim/snippets'
-" Plugin key-mappings.
+" Bundle key-mappings.
 imap <C-\>     <Plug>(neosnippet_expand_or_jump)
 smap <C-\>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-\>     <Plug>(neosnippet_expand_target)
@@ -144,17 +151,17 @@ endif
 " ---------------------------------------------------------------------------
 "  Personal: File Templates
 " ---------------------------------------------------------------------------
-Plugin 'jimzhan/vim-template'
+Bundle 'jimzhan/vim-template'
 
 
 " ---------------------------------------------------------------------------
 "  Themes: Color Themes
 " ---------------------------------------------------------------------------
-Plugin 'tomasr/molokai'
+Bundle 'tomasr/molokai'
 
 
 " ***************************************************************************
-"  Functions: Plugin Helpers
+"  Functions: Bundle Helpers
 " ***************************************************************************
 function! ToggleNERDTreeAndTagbar()
     let w:jumpbacktohere = 1

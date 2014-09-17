@@ -11,8 +11,8 @@
 !/vim/neosnippets
 !/vim/snippets
 !LICENSE
-!link
 !README.md
+!setup
 !vimrc
 !vimrc.bundles
 !vimrc.defaults

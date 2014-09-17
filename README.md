@@ -5,7 +5,7 @@ Personal Vim Settings.
 
 ## Prerequisites
 
-    brew install cmake
+    brew install cmake ctags
     brew install macvim --with-cscope --with-lua
     brew install vim --with-lua --override-system-vim
     brew linkapps
@@ -13,5 +13,7 @@ Personal Vim Settings.
 [Issues with MacVim](https://github.com/b4winckler/macvim/wiki/Troubleshooting)
 
 
+### NeoComplete
+
 ### YCM (aka. YouCompleteMe)
-    install.sh --clang-completer --omnisharp-completer
+    install.sh --clang-completer

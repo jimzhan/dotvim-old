@@ -223,10 +223,10 @@ autocmd FileType haskell setlocal commentstring=--\ %s
 " Workaround broken colour highlighting in Haskell
 autocmd FileType haskell,rust setlocal nospell
 
-
 " ---------------------------------------------------------------------------
 "  Key Mappings
 " ---------------------------------------------------------------------------
+imap jj <ESC>           " Shortcut to ESC
 let mapleader = ','     " The default Leader is '\'.
 " Code folding options
 nmap <leader>f0 :set foldlevel=0<CR>

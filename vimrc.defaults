@@ -404,7 +404,7 @@ let pyindent_open_paren="&sw*2"
 " ---------------------------------------------------------------------------
 " The next three lines ensure that the ~/.vim/bundle/ system works
 filetype off
-set rtp+=~/.vim/plugins/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 if filereadable(expand("~/.vimrc.bundles"))

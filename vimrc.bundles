@@ -18,15 +18,17 @@
 " limitations under the License.
 " ------------------------------------------------------------
 
+
 " ---------------------------------------------------------------------------
-"  Fugitive for GIT
+"  GIT Manager: Fugitive
 " ---------------------------------------------------------------------------
 Plugin 'tpope/vim-fugitive'
 
 
 " ---------------------------------------------------------------------------
-"  NERDTree
+"  File Manager: NERDTree + CtrlP
 " ---------------------------------------------------------------------------
+Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 map <C-o>   <plug>NERDTreeTabsToggle<CR>
@@ -39,12 +41,6 @@ nnoremap <Leader>nt     :call ToggleNERDTreeAndTagbar()<CR>
 "  NERDCommentor
 " ---------------------------------------------------------------------------
 Plugin 'scrooloose/nerdcommenter'
-
-
-" ---------------------------------------------------------------------------
-"  Ctrl-P Files Finder
-" ---------------------------------------------------------------------------
-Plugin 'kien/ctrlp.vim'
 
 
 " ---------------------------------------------------------------------------
@@ -83,27 +79,72 @@ let g:tagbar_type_go = {
 " ---------------------------------------------------------------------------
 Plugin 'fatih/vim-go'
 let g:go_fmt_command = "goimports"
-" Go related mappings
-au FileType go nmap <Leader>gi <Plug>(go-info)
-au FileType go nmap <Leader>gd <Plug>(go-doc)
-au FileType go nmap <Leader>go <Plug>(go-run)
-au FileType go nmap <Leader>gb <Plug>(go-build)
-au FileType go nmap <Leader>gt <Plug>(go-test)
-au FileType go nmap gd         <Plug>(go-def-tab)
+
 
 " ---------------------------------------------------------------------------
 "  Static Syntax Checking
 " ---------------------------------------------------------------------------
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 "map <Leader>sc  <Plug>(SyntasticCheck)
+
 
 " ---------------------------------------------------------------------------
 "  Editing/Autocomplete Supports
 " ---------------------------------------------------------------------------
-Plugin 'ervandew/supertab'
-let g:SuperTabDefaultCompletionType = "context"
-
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'terryma/vim-multiple-cursors'
+
+
+" ---------------------------------------------------------------------------
+"  Autocomplete & Code Snippets
+" ---------------------------------------------------------------------------
+Plugin 'Shougo/neocomplete'
+" Disable preview buffer at the bottom
+set completeopt-=preview
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'"
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+" ---------------------------------------------------------------------------
+Plugin 'Shougo/neosnippet.vim'
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='$HOME/.vim/snippets'
+" Plugin key-mappings.
+imap <C-\>     <Plug>(neosnippet_expand_or_jump)
+smap <C-\>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-\>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: "\<TAB>"
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
+" ---------------------------------------------------------------------------
+
+
+" ---------------------------------------------------------------------------
+"  File Templates
+" ---------------------------------------------------------------------------
+Plugin 'jimzhan/vim-template'
 
 
 " ---------------------------------------------------------------------------
@@ -112,9 +153,9 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'tomasr/molokai'
 
 
-" ---------------------------------------------------------------------------
+" ***************************************************************************
 "  Plugin Helpers
-" ---------------------------------------------------------------------------
+" ***************************************************************************
 function! ToggleNERDTreeAndTagbar()
     let w:jumpbacktohere = 1
 

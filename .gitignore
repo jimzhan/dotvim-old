@@ -1,2 +1,5 @@
 # Exclude the bundle directory
-build/*
+plugins/*
+
+# But not the Vundle
+!plugins/Vundle.vim

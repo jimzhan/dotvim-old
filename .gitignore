@@ -1,7 +1,7 @@
 # Exclude the bundle directory
+.netrwhist
 *bundle
 *bundle/*
-
 
 # But not the Vundle
 !*bundle/Vundle.vim

@@ -1,5 +1,5 @@
 ""  ------------------------------------------------------------
-" *  @file       vimrc.defaults
+" *  @file       vimrc.functions
 " *  @date       2014
 " *  @author     Jim Zhan <jim.zhan@me.com>
 " *
@@ -170,7 +170,7 @@ let pyindent_open_paren="&sw*2"
 " ---------------------------------------------------------------------------
 "  Plugin Manager: Initialize Vundle to manage plugins.
 " ---------------------------------------------------------------------------
-function! dotvim.InitializeNeoBundle(config)
+function! dotvim.InitializePlugins(config)
     " Ensure NeoBundle's Existence.
     if !filereadable(expand('$HOME/.vim/bundle/neobundle.vim/README.md'))
         echo "[*] Installing NeoBundle..."

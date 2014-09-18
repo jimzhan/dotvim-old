@@ -1,5 +1,5 @@
 "  ------------------------------------------------------------
-" *  @file       vimrc.bundles
+" *  @file       vimrc.plugins
 " *  @date       2014
 " *  @author     Jim Zhan <jim.zhan@me.com>
 " *
@@ -17,10 +17,16 @@
 " See the License for the specific language governing permissions and
 " limitations under the License.
 " ------------------------------------------------------------
-
-" ---------------------------------------------------------------------------
 "  Fundamental Envionment
 " ---------------------------------------------------------------------------
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'unix' : 'make -f make_unix.mak',
+\    },
+\ }
 
 
 " ---------------------------------------------------------------------------
@@ -53,12 +59,6 @@ let g:ctrlp_working_path_mode = 'rw'
 
 
 " ---------------------------------------------------------------------------
-"  Windows Manager: TODO
-" ---------------------------------------------------------------------------
-
-
-
-" ---------------------------------------------------------------------------
 "  Comment Helper: NERDCommentor
 " ---------------------------------------------------------------------------
 NeoBundle 'scrooloose/nerdcommenter'
@@ -76,25 +76,28 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 " ---------------------------------------------------------------------------
 "  Tags: Source Code Tags
 " ---------------------------------------------------------------------------
-NeoBundle 'majutsushi/tagbar'
-let g:tagbar_width=30
-let g:tagbar_ctags_bin='$(which ctags)'
-autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx,*.go call tagbar#autoopen()
-nnoremap <silent> <Leader>tt :TagbarToggle<CR>
-" If using go please install the gotags program using the following
-" go install github.com/jstemmer/gotags
-" And make sure gotags is in your path
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [  'p:package', 'i:imports:1', 'c:constants', 'v:variables',
-        \ 't:types',  'n:interfaces', 'w:fields', 'e:embedded', 'm:methods',
-        \ 'r:constructor', 'f:functions' ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : { 't' : 'ctype', 'n' : 'ntype' },
-    \ 'scope2kind' : { 'ctype' : 't', 'ntype' : 'n' },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-    \ }
+if executable('ctags')
+    NeoBundle 'majutsushi/tagbar'
+    let g:tagbar_width=30
+    autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx,*.go call tagbar#autoopen()
+    nnoremap <silent> <Leader>tt :TagbarToggle<CR>
+    " If using go please install the gotags program using the following
+    " go install github.com/jstemmer/gotags
+    " And make sure gotags is in your path
+    if executable('gotags')
+        let g:tagbar_type_go = {
+            \ 'ctagstype' : 'go',
+            \ 'kinds'     : [  'p:package', 'i:imports:1', 'c:constants', 'v:variables',
+                \ 't:types',  'n:interfaces', 'w:fields', 'e:embedded', 'm:methods',
+                \ 'r:constructor', 'f:functions' ],
+            \ 'sro' : '.',
+            \ 'kind2scope' : { 't' : 'ctype', 'n' : 'ntype' },
+            \ 'scope2kind' : { 'ctype' : 't', 'ntype' : 'n' },
+            \ 'ctagsbin'  : 'gotags',
+            \ 'ctagsargs' : '-sort -silent'
+            \ }
+    endif
+endif
 
 
 " ---------------------------------------------------------------------------
@@ -107,8 +110,7 @@ let g:go_fmt_command = "goimports"
 " ---------------------------------------------------------------------------
 "  Syntax: Static Syntax Checking
 " ---------------------------------------------------------------------------
-"NeoBundle 'scrooloose/syntastic'
-"map <Leader>sc  <Plug>(SyntasticCheck)
+NeoBundle 'scrooloose/syntastic'
 
 
 " ---------------------------------------------------------------------------
@@ -215,4 +217,3 @@ function! ToggleNERDTreeAndTagbar()
         endif
     endfor
 endfunction
-

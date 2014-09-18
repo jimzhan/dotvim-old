@@ -17,14 +17,11 @@
 " See the License for the specific language governing permissions and
 " limitations under the License.
 " ------------------------------------------------------------
-
-
-" ---------------------------------------------------------------------------
 "  Enviroment
 " ---------------------------------------------------------------------------
-set nocompatible        " Must be first line
-set background=dark     " Assume a dark background
-source $HOME/.vim/vimrc.settings
+set nocompatible
+set background=dark
+source $HOME/.vim/vimrc.consts
 source $HOME/.vim/vimrc.functions
 if has('win32') || has('win64')
     source $HOME/.vim/vimrc.windows
@@ -129,7 +126,7 @@ set cursorline                  " Highlight current line
 
 highlight clear SignColumn      " SignColumn should match background
 highlight clear LineNr          " Current line number row will have same background color in relative mode
-"highlight clear CursorLineNr    " Remove highlight color from current line number
+highlight clear CursorLineNr    " Remove highlight color from current line number
 
 if has('cmdline_info')
     set ruler                   " Show the ruler
@@ -235,7 +232,7 @@ nmap <leader>f9 :set foldlevel=9<CR>
 
 
 " ---------------------------------------------------------------------------
-"  GUI Settings
+"  GUI: basic gvim settings instead of .gvimrc.
 " ---------------------------------------------------------------------------
 " GVIM- (here instead of .gvimrc)
 if has('gui_running')
@@ -259,6 +256,6 @@ endif
 
 
 " ---------------------------------------------------------------------------
-" Plugins Manager: Setup Bundle Support
+" Plugins Manager: Setup Plugins Support.
 " ---------------------------------------------------------------------------
-call dotvim.InitializeNeoBundle(expand('~/.vimrc.plugins'))
+call dotvim.InitializePlugins(expand('~/.vimrc.plugins'))

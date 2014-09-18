@@ -1,8 +1,0 @@
-let g:dotvim = {}
-let g:dotvim.autochdir = 1
-let g:dotvim.restore_cursor = 1
-
-let g:dotvim.bundle = {}
-let g:dotvim.bundle.Initialized = 1
-
-let g:dotvim.path = {}

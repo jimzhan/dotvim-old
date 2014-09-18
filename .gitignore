@@ -1,3 +1,4 @@
 # Ignore Bundles
 # ---------------
+.netrwhist
 /vim/bundle/*

@@ -279,7 +279,6 @@ endif
 " Vundle: Setup Bundle Support
 " ---------------------------------------------------------------------------
 call InitializeVundle()
-" Setting up Vundle
 " ---------------------------------------------------------------------------
 filetype off
 set rtp+=~/.vim/bundle/vundle
@@ -289,10 +288,8 @@ source ~/.vim/vimrc.bundles                     " Default Plugins
 if filereadable(expand('~/.vimrc.bundles'))     " Local User's Plugins
     source ~/.vimrc.bundles
 endif
-call vundle#end()           
-filetype plugin indent on
-
-" Bundles Install
+call vundle#end()
+filetype indent plugin on
 " ---------------------------------------------------------------------------
 if g:vundle_initialized == 0
     :BundleInstall

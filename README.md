@@ -13,6 +13,12 @@ Personal Vim Settings.
 [Issues with MacVim](https://github.com/b4winckler/macvim/wiki/Troubleshooting)
 
 
+## Install
+
+    git clone https://github.com/jimzhan/Vim
+    Vim/setup
+
+
 ### NeoComplete
 
 ### YCM (aka. YouCompleteMe)

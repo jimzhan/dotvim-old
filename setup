@@ -50,7 +50,5 @@ link() {
 
 link ${here}/vim 			$HOME/.vim
 link ${here}/vimrc 			$HOME/.vimrc
-link ${here}/vim/vimrc.bundles 		$HOME/.vimrc.bundles
-link ${here}/vim/vimrc.defaults 	$HOME/.vimrc.defaults
 
 success "VIM's settings has been updated"

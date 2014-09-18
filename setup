@@ -51,4 +51,5 @@ link() {
 link ${here}/vim 			$HOME/.vim
 link ${here}/vimrc 			$HOME/.vimrc
 
-success "VIM's settings has been updated"
+success "VIM's settings has been updated, starting Vim..."
+vim

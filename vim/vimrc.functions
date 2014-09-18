@@ -17,14 +17,15 @@
 " See the License for the specific language governing permissions and
 " limitations under the License.
 " ------------------------------------------------------------
-
-
+if !exists('g:dotvim')
+    let g:dotvim = {}
+endif
 
 " ---------------------------------------------------------------------------
 "  Functions
 " ---------------------------------------------------------------------------
 " Initialize directories 
-function! InitializeDirectories()
+function! dotvim.InitializeDirectories()
     let parent = $HOME
     let prefix = 'vim'
     let dir_list = {
@@ -39,10 +40,10 @@ function! InitializeDirectories()
     " To specify a different directory in which to place the vimbackup,
     " vimviews, vimundo, and vimswap files/directories, add the following to
     " your .vimrc.before.local file:
-    "   let g:consts_consolidated_directory = <full path to desired directory>
-    "   eg: let g:consts_consolidated_directory = $HOME . '/.vim/'
-    if exists('g:consts_consolidated_directory')
-        let common_dir = g:consts_consolidated_directory . prefix
+    "   let g:dotvim.consolidated_directory = <full path to desired directory>
+    "   eg: let g:dotvim.consolidated_directory = $HOME . '/.vim/'
+    if exists('g:dotvim.consolidated_directory')
+        let common_dir = g:dotvim.consolidated_directory . prefix
     else
         let common_dir = parent . '/.' . prefix
     endif
@@ -63,10 +64,10 @@ function! InitializeDirectories()
         endif
     endfor
 endfunction
-call InitializeDirectories()
+call dotvim.InitializeDirectories()
 
 " Initialize NERDTree as needed 
-function! NERDTreeInitAsNeeded()
+function! dotvim.NERDTreeInitAsNeeded()
     redir => bufoutput
     buffers!
     redir END
@@ -78,8 +79,8 @@ function! NERDTreeInitAsNeeded()
     endif
 endfunction
 
-" Strip whitespace 
-function! StripTrailingWhitespace()
+" Strip whitespace
+function! dotvim.StripTrailingWhitespace()
     " Preparation: save last search, and cursor position.
     let _s=@/
     let l = line(".")
@@ -91,7 +92,7 @@ function! StripTrailingWhitespace()
     call cursor(l, c)
 endfunction
 
-" Shell command 
+" Shell command
 function! s:RunShellCommand(cmdline)
     botright new
 
@@ -110,8 +111,8 @@ function! s:RunShellCommand(cmdline)
     1
 endfunction
 
-command! -complete=file -nargs=+ Shell call s:RunShellCommand(<q-args>)
 " e.g. Grep current file for <search_term>: Shell grep -Hn <search_term> %
+command! -complete=file -nargs=+ Shell call s:RunShellCommand(<q-args>)
 
 
 " ---------------------------------------------------------------------------
@@ -119,7 +120,7 @@ command! -complete=file -nargs=+ Shell call s:RunShellCommand(<q-args>)
 " ---------------------------------------------------------------------------
 setlocal indentexpr=GetGooglePythonIndent(v:lnum)
 let s:maxoff = 50 " maximum number of lines to look backwards.
-function GetGooglePythonIndent(lnum)
+function dotvim.GetGooglePythonIndent(lnum)
 
   " Indent inside parens.
   " Align with the open paren unless it is at the end of the line.
@@ -143,25 +144,52 @@ function GetGooglePythonIndent(lnum)
   endif
 
   " Delegate the rest to the original function.
-  return GetPythonIndent(a:lnum)
+  return dotvim.GetPythonIndent(a:lnum)
 endfunction
 
 let pyindent_nested_paren="&sw*2"
 let pyindent_open_paren="&sw*2"
 
+" ---------------------------------------------------------------------------
+"  Logger: debug logger..
+" ---------------------------------------------------------------------------
+"function! dotvim#log(msg, ...)
+  "let is_unite = get(a:000, 0, 0)
+  "let msg = type(a:msg) == type([]) ?
+        "\ a:msg : split(a:msg, '\n')
+  "call extend(s:log, msg)
+
+  "if !(&filetype == 'unite' || is_unite)
+    "call neobundle#util#redraw_echo(msg)
+  "endif
+
+  "call s:append_log_file(msg)
+"endfunction
+
 
 " ---------------------------------------------------------------------------
 "  Plugin Manager: Initialize Vundle to manage plugins.
 " ---------------------------------------------------------------------------
-function! InitializeVundle()
-    if !exists('g:consts_no_autochdir')
-        let g:vundle_initialized = 1
-    endif
-    " Ensure Vundle's Existence.
-    if !filereadable(expand('~/.vim/bundle/vundle/README.md'))
-        echo "* Installing Vundle..."
+function! dotvim.InitializeNeoBundle(config)
+    " Ensure NeoBundle's Existence.
+    if !filereadable(expand('$HOME/.vim/bundle/neobundle.vim/README.md'))
+        echo "[*] Installing NeoBundle..."
         echo ""
-        silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-        let g:vundle_initialized = 0
+        silent !git clone https://github.com/Shougo/neobundle.vim $HOME/.vim/bundle/neobundle.vim
+        let g:dotvim.bundle.Initialized = 0
+    endif
+
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+    call neobundle#begin(expand('~/.vim/bundle/'))
+    NeoBundleFetch 'Shougo/neobundle.vim'
+    source ~/.vim/vimrc.plugins
+    if filereadable(a:config)
+        source a:config
+    endif
+    call neobundle#end()
+    filetype indent plugin on
+    NeoBundleCheck
+    if g:dotvim.bundle.Initialized == 0
+        :NeoBundleInstall
     endif
 endfunction

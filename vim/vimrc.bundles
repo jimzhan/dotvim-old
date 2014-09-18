@@ -150,9 +150,10 @@ endif
 
 
 " ---------------------------------------------------------------------------
-"  Personal: File Templates
+"  Templates: File Templates
 " ---------------------------------------------------------------------------
-Bundle 'jimzhan/vim-template'
+Bundle 'aperezdc/vim-template'
+let g:template_dir = expand('~/.vim/templates')
 
 
 " ---------------------------------------------------------------------------

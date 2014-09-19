@@ -47,23 +47,23 @@ link() {
         mv ${2} ${2}.previous
     fi
     ln -s ${1} ${2}
-    success "${2} -> ${1}"
+    success "${2}   -> ${1}"
 }
 
 
 if [ ! -d ${dotvim} ]; then
     git clone --recursive ${repos} ${dotvim}
+    link ${dotvim}/vim      $HOME/.vim
+    link ${dotvim}/vimrc	$HOME/.vimrc
+    success "Hooray! You are good to go now :-)"
 else
     if [ -d "${dotvim}/.git" ]; then
         info 'Fetching updates...'
+        cd ${dotvim}
         git pull
         if [ -f "${dotvim}/.gitmodules" ]; then
             git submodule foreach git pull
         fi
     fi
+    success "Vim has been updated :-)"
 fi
-
-link ${dotvim}/vim	$HOME/.vim
-link ${dotvim}/vimrc	$HOME/.vimrc
-
-success "Hooray! You are good to go now :-)"

@@ -27,6 +27,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 \     'unix' : 'make -f make_unix.mak',
 \    },
 \ }
+NeoBundle 'Shougo/vimshell'
 
 
 " ---------------------------------------------------------------------------

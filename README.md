@@ -39,7 +39,7 @@ Plugins
 
 ### Plugins Manager
 
-[Shougo/neobundle](https://github.com/Shougo/neobundle.vim): based on [gmarik/vundle](https://github.com/gmarik/vundle) but way better with tons of added features.
+* [Shougo/neobundle](https://github.com/Shougo/neobundle.vim): based on [gmarik/vundle](https://github.com/gmarik/vundle) but way better with tons of added features.
 
 
 ### File Manager

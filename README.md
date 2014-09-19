@@ -55,6 +55,7 @@ map <C-o>   <plug>NERDTreeTabsToggle<CR>
 
 ### GIT
 
+* [airblade/vim-gitgutter](https://github.com/airblade/vim-gitgutter): shows whether each line has been added, modified, and where lines have been removed.
 * [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive): the best GIT plugin for Vim with shortcuts.
 
 ```bash

@@ -44,6 +44,7 @@ nnoremap <silent> <leader>gr :Gremove<CR>
 autocmd BufReadPost Fugitive://* set bufhidden=delete
 
 
+
 " ---------------------------------------------------------------------------
 "  File Manager: NERDTree + Ctrlp
 " ---------------------------------------------------------------------------
@@ -51,17 +52,19 @@ NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'jistr/vim-nerdtree-tabs'
 map <C-o>   <plug>NERDTreeTabsToggle<CR>
-let NERDTreeShowBookmarks = 1
-let NERDTreeIgnore=['\.DS_Store', '\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
 " Let Ctrlp work with NERDTree under the same CWD.
 let g:NERDTreeChDirMode       = 2
 let g:ctrlp_working_path_mode = 'rw'
+let NERDTreeShowBookmarks = 1
+let NERDTreeIgnore=['\.DS_Store', '\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+
 
 
 " ---------------------------------------------------------------------------
 "  Comment Helper: NERDCommentor
 " ---------------------------------------------------------------------------
 NeoBundle 'scrooloose/nerdcommenter'
+
 
 
 " ---------------------------------------------------------------------------
@@ -71,6 +74,7 @@ NeoBundle 'bling/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
+
 
 
 " ---------------------------------------------------------------------------
@@ -111,6 +115,15 @@ let g:go_fmt_command = "goimports"
 "  Syntax: Static Syntax Checking
 " ---------------------------------------------------------------------------
 NeoBundle 'scrooloose/syntastic'
+hi SyntasticErrorSign guifg=red ctermfg=red
+hi! link SyntasticErrorSign SignColumn
+let g:syntastic_enable_signs = 1
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_style_error_symbol = "✗>"
+let g:syntastic_warning_symbol = "⚠"
+let g:syntastic_check_on_open = 1
+" Note that Vim must be compiled with |+balloon_eval|.
+let g:syntastic_enable_balloons = 1
 
 
 " ---------------------------------------------------------------------------
@@ -178,6 +191,12 @@ let g:template_dir = expand('~/.vim/templates')
 "  Themes: Color Themes
 " ---------------------------------------------------------------------------
 NeoBundle 'tomasr/molokai'
+let g:rehash256=1
+let g:molokai_original = 1
+" ---------------------------------------------------------------------------
+
+" ---------------------------------------------------------------------------
+
 
 
 " ***************************************************************************

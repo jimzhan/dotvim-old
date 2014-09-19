@@ -29,3 +29,5 @@ source $HOME/.vim/vimrc.defaults
 "  Local Settings
 " ---------------------------------------------------------------------------
 colorscheme molokai
+"colorscheme base16-tomorrow
+

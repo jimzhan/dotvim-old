@@ -1,6 +1,6 @@
 #! /bin/bash
 #
-# @file link.sh
+# @file setup
 #
 # Copyright © 2014 Jim Zhan <jim.zhan@me.com>
 #
@@ -15,8 +15,10 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
+# ----------------------------------------------------------------------
 here="$( cd "$( dirname "${BASH_SOURCE[0]}"  )" && pwd  )"
+
+repos="https://github.com/jimzhan/dotvim"
 
 
 log() {
@@ -36,7 +38,6 @@ success() {
 }
 
 
-
 link() {
     if [ -L ${2} ]; then
         unlink ${2}
@@ -48,8 +49,22 @@ link() {
     success "${2} -> ${1}"
 }
 
-link ${here}/vim 			$HOME/.vim
-link ${here}/vimrc 			$HOME/.vimrc
+
+if [ ! -d "$HOME/.dotvim" ]; then
+    git clone --recursive ${repos} $HOME/.dotvim
+else
+    if [ -d "$HOME/.dotvim/.git" ]; then
+        info 'Fetching updates...'
+        git pull
+        if [ -f "$HOME/.dotvim/.gitmodules" ]; then
+            git submodule foreach git pull
+        fi
+    fi
+fi
+
+link ${here}/vim        $HOME/.vim
+link ${here}/vimrc      $HOME/.vimrc
 
 success "VIM's settings has been updated, starting Vim..."
 vim
+

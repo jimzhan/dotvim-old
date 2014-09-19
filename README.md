@@ -15,11 +15,17 @@ Personal Vim Settings.
 
 ## Install
 
-    git clone https://github.com/jimzhan/Vim
-    Vim/setup
+Run the following line from your terminal
+
+    curl https://raw.github.com/jimzhan/dotvim/master/setup -L -o - | sh
 
 
-### NeoComplete
+## Notes
 
-### YCM (aka. YouCompleteMe)
+### Autocomplete
+
+
+#### NeoComplete
+
+#### YCM (aka. YouCompleteMe)
     install.sh --clang-completer

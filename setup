@@ -18,6 +18,7 @@
 # ----------------------------------------------------------------------
 here="$( cd "$( dirname "${BASH_SOURCE[0]}"  )" && pwd  )"
 
+dotvim="$HOME/.dotvim"
 repos="https://github.com/jimzhan/dotvim"
 
 
@@ -50,21 +51,19 @@ link() {
 }
 
 
-if [ ! -d "$HOME/.dotvim" ]; then
-    git clone --recursive ${repos} $HOME/.dotvim
+if [ ! -d ${dotvim} ]; then
+    git clone --recursive ${repos} ${dotvim}
 else
-    if [ -d "$HOME/.dotvim/.git" ]; then
+    if [ -d "${dotvim}/.git" ]; then
         info 'Fetching updates...'
         git pull
-        if [ -f "$HOME/.dotvim/.gitmodules" ]; then
+        if [ -f "${dotvim}/.gitmodules" ]; then
             git submodule foreach git pull
         fi
     fi
 fi
 
-link ${here}/vim        $HOME/.vim
-link ${here}/vimrc      $HOME/.vimrc
+link ${dotvim}/vim	$HOME/.vim
+link ${dotvim}/vimrc	$HOME/.vimrc
 
-success "VIM's settings has been updated, starting Vim..."
-vim
-
+success "Hooray! You are good to go now :-)"

@@ -4,7 +4,9 @@ Vim for Mac
 This is my *personal* vim bundle mainly for Mac, but it should also work on Linux/Unix with a little tweaks.
 
 
-## Prerequisites
+Prerequisites
+=============
+
 
 * Updated Vim Version
 * Build Tools Supports
@@ -17,20 +19,23 @@ This is my *personal* vim bundle mainly for Mac, but it should also work on Linu
 [Issues with MacVim](https://github.com/b4winckler/macvim/wiki/Troubleshooting)
 
 
-## Install
+Install
+=======
 
 Run the following line from your terminal
 
     curl https://raw.githubusercontent.com/jimzhan/dotvim/master/setup -L -o - | sh
 
 
-## Preview
+Preview
+=======
 
 ![Vim with NERDTree + Tagbar Opened](preview/dotvim.png)
 
 
 
-## Plugins
+Plugins
+=======
 
 ### Plugins Manager
 
@@ -81,8 +86,7 @@ Run the following line from your terminal
 
 
 
-## Mapping
+Mapping
+=======
 * *jj*            \<ESC\>
 * Uses , as \<Leader\>
-* *\<C-o\>*         Toggles [NERDTree](https://github.com/scrooloose/nerdtree) panel on the left.
-* *\<Leader\>tt*    Toggles [Tagbar](https://github.com/majutsushi/tagbar) panel on the right.

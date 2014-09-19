@@ -46,7 +46,9 @@ Plugins
 
 * [scrooloose/nerdtree](https://github.com/scrooloose/nerdtree): IDE-liked file manager.
 
-    map <C-o>   <plug>NERDTreeTabsToggle<CR>
+```bash
+map <C-o>   <plug>NERDTreeTabsToggle<CR>
+```
 
 * [kien/ctrlp](https://github.com/kien/ctrlp.vim): fuzzy file finder.
 

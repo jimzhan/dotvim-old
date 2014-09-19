@@ -51,11 +51,11 @@ autocmd BufReadPost Fugitive://* set bufhidden=delete
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'jistr/vim-nerdtree-tabs'
+let NERDTreeShowBookmarks = 1
 map <C-o>   <plug>NERDTreeTabsToggle<CR>
 " Let Ctrlp work with NERDTree under the same CWD.
 let g:NERDTreeChDirMode       = 2
 let g:ctrlp_working_path_mode = 'rw'
-let NERDTreeShowBookmarks = 1
 let NERDTreeIgnore=['\.DS_Store', '\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
 
 

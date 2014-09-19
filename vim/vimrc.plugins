@@ -66,7 +66,6 @@ let NERDTreeIgnore=['\.DS_Store', '\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '
 NeoBundle 'scrooloose/nerdcommenter'
 
 
-
 " ---------------------------------------------------------------------------
 "  Status: Status Line Enhancement
 " ---------------------------------------------------------------------------
@@ -132,10 +131,12 @@ let g:syntastic_enable_balloons = 1
 "  Editing:
 "   * Emmet: previously known as Zen Coding is a web-developer’s toolkit that
 "           can greatly improve HTML/CSS workflow by combining shortcuts & snippets.
-"   * Pairing: Insert or delete brackets, parens, quotes in pair.
+"   * Surround: CRUD for parentheses, brackets, quotes, XML tags, and more.
+"   * Autoclose: Insert or delete brackets, parens, quotes in pair.
 "   * Multiple Curosr: Multiple selection/editing like Sublime Text.
 " ---------------------------------------------------------------------------
 NeoBundle 'mattn/emmet-vim'
+NeoBundle 'tpope/vim-surround'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'terryma/vim-multiple-cursors'
 

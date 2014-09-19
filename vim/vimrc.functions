@@ -153,17 +153,16 @@ let pyindent_open_paren="&sw*2"
 " ---------------------------------------------------------------------------
 "  Logger: debug logger..
 " ---------------------------------------------------------------------------
-"function! dotvim#log(msg, ...)
-  "let is_unite = get(a:000, 0, 0)
-  "let msg = type(a:msg) == type([]) ?
-        "\ a:msg : split(a:msg, '\n')
-  "call extend(s:log, msg)
+"function! dotvim.log(msg, ...)
+    "let is_unite = get(a:000, 0, 0)
+    "let msg = type(a:msg) == type([]) ? a:msg : split(a:msg, '\n')
+    "call extend(s:log, msg)
 
-  "if !(&filetype == 'unite' || is_unite)
-    "call neobundle#util#redraw_echo(msg)
-  "endif
+    "if !(&filetype == 'unite' || is_unite)
+        "call neobundle#util#redraw_echo(msg)
+    "endif
 
-  "call s:append_log_file(msg)
+    "call s:append_log_file(msg)
 "endfunction
 
 

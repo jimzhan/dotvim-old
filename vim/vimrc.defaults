@@ -122,6 +122,7 @@ endif
 set tabpagemax=15               " Only show 15 tabs
 set showmode                    " Display the current mode
 set cursorline                  " Highlight current line
+set colorcolumn=80              " Enable Vertical Color Column at 80.
 
 highlight clear SignColumn      " SignColumn should match background
 highlight clear LineNr          " Current line number row will have same background color in relative mode
@@ -136,11 +137,10 @@ endif
 
 if has('statusline')
     set laststatus=2
-
     " Broken down into easily includeable segments
     set statusline=%<%f\                     " Filename
     set statusline+=%w%h%m%r                 " Options
-    "set statusline+=%{fugitive#statusline()} " Git Hotness
+    set statusline+=%{fugitive#statusline()} " Git Hotness
     set statusline+=\ [%{&ff}/%Y]            " Filetype
     set statusline+=\ [%{getcwd()}]          " Current dir
     set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
@@ -209,16 +209,16 @@ autocmd FileType haskell,rust setlocal nospell
 imap jj <ESC>           " Shortcut to ESC
 let mapleader = ','     " The default Leader is '\'.
 " Code folding options
-nmap <leader>f0 :set foldlevel=0<CR>
-nmap <leader>f1 :set foldlevel=1<CR>
-nmap <leader>f2 :set foldlevel=2<CR>
-nmap <leader>f3 :set foldlevel=3<CR>
-nmap <leader>f4 :set foldlevel=4<CR>
-nmap <leader>f5 :set foldlevel=5<CR>
-nmap <leader>f6 :set foldlevel=6<CR>
-nmap <leader>f7 :set foldlevel=7<CR>
-nmap <leader>f8 :set foldlevel=8<CR>
-nmap <leader>f9 :set foldlevel=9<CR>
+nmap <leader>0 :set foldlevel=0<CR>
+nmap <leader>1 :set foldlevel=1<CR>
+nmap <leader>2 :set foldlevel=2<CR>
+nmap <leader>3 :set foldlevel=3<CR>
+nmap <leader>4 :set foldlevel=4<CR>
+nmap <leader>5 :set foldlevel=5<CR>
+nmap <leader>6 :set foldlevel=6<CR>
+nmap <leader>7 :set foldlevel=7<CR>
+nmap <leader>8 :set foldlevel=8<CR>
+nmap <leader>9 :set foldlevel=9<CR>
 " Buffer Switching
 :nmap <C-l>     :bnext<CR>
 :nmap <C-h>     :bprevious<CR>

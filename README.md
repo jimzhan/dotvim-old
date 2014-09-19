@@ -81,9 +81,14 @@ nnoremap <silent> <leader>gr :Gremove<CR>
 * [aperezdc/vim-template](https://github.com/aperezdc/vim-template): allows you to have a set of templates for certain file types.
 
 
+### File Types
+
+* [tpope/vim-markdown](https://github.com/tpope/vim-markdown): Markdown
+* [fatih/vim-go](https://github.com/fatih/vim-go): Golang support for Vim that comes with pre-defined sensible settings.
+
+
 ### Programming
 
-* [fatih/vim-go](https://github.com/fatih/vim-go): Golang support for Vim that comes with pre-defined sensible settings.
 * [mattn/emmet-vim](https://github.com/mattn/emmet-vim): previously known as Zen Coding, improve HTML/CSS workflow by combining shortcuts & snippets.
 * [majutsushi/tagbar](https://github.com/majutsushi/tagbar): provides a sidebar that displays the ctags-generated tags of the current file, ordered by their scope.
 * [scrooloose/syntastic](https://github.com/scrooloose/syntastic): syntax checking that runs files through external syntax checkers and displays any resulting errors to the user.

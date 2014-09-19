@@ -109,7 +109,9 @@ endif
 NeoBundle 'fatih/vim-go'
 let g:go_fmt_command = "goimports"
 " ---------------------------------------------------------------------------
-NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'tpope/vim-markdown'
+au BufRead,BufNewFile *.md set filetype=markdown
+" ---------------------------------------------------------------------------
 
 
 " ---------------------------------------------------------------------------

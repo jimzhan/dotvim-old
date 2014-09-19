@@ -44,16 +44,16 @@ Plugins
 
 ### File Manager
 
-[scrooloose/nerdtree](https://github.com/scrooloose/nerdtree): IDE-liked file manager.
+* [scrooloose/nerdtree](https://github.com/scrooloose/nerdtree): IDE-liked file manager.
 
     map <C-o>   <plug>NERDTreeTabsToggle<CR>
 
-[kien/ctrlp](https://github.com/kien/ctrlp.vim): fuzzy file finder.
+* [kien/ctrlp](https://github.com/kien/ctrlp.vim): fuzzy file finder.
 
 
 ### GIT
 
-[tpope/vim-fugitive](https://github.com/tpope/vim-fugitive): the best GIT plugin for Vim with shortcuts.
+* [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive): the best GIT plugin for Vim with shortcuts.
 
     nnoremap <silent> <leader>gs :Gstatus<CR>
     nnoremap <silent> <leader>gd :Gdiff<CR>
@@ -67,26 +67,37 @@ Plugins
 
 ### Autocomplete
 
-[Shougo/neocomplete](https://github.com/Shougo/neocomplete.vim) + [Shougo/neosnippet](https://github.com/Shougo/neosnippet.vim): lightweight (especially comparing to [YCM](https://github.com/Valloric/YouCompleteMe), compiled size: 175MB on my laptop...) yet powerful. (Required Vim with lua compiled)
+* [Shougo/neocomplete](https://github.com/Shougo/neocomplete.vim) + [Shougo/neosnippet](https://github.com/Shougo/neosnippet.vim): lightweight (especially comparing to [YCM](https://github.com/Valloric/YouCompleteMe), compiled size: 175MB on my laptop...) yet powerful. (Required Vim with lua compiled)
 
 
 ### File Editing
 
-[scrooloose/nerdcommenter](https://github.com/scrooloose/nerdcommenter): help comment/uncomment blocks in document.
+* [scrooloose/nerdcommenter](https://github.com/scrooloose/nerdcommenter): help commenting/uncommenting blocks in document.
+* [jiangmiao/auto-pairs](https://github.com/jiangmiao/auto-pairs): insert or delete brackets, parens, quotes in pair.
+* [terryma/vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors): multiple selection & editing like Sublime Text.
+* [aperezdc/vim-template](https://github.com/aperezdc/vim-template): allows you to have a set of templates for certain file types.
+
+
+### Programming
+
+* [fatih/vim-go](https://github.com/fatih/vim-go): Golang support for Vim that comes with pre-defined sensible settings.
+* [mattn/emmet-vim](https://github.com/mattn/emmet-vim): previously known as Zen Coding, improve HTML/CSS workflow by combining shortcuts & snippets.
+* [majutsushi/tagbar](https://github.com/majutsushi/tagbar): provides a sidebar that displays the ctags-generated tags of the current file, ordered by their scope.
+* [scrooloose/syntastic](https://github.com/scrooloose/syntastic): syntax checking that runs files through external syntax checkers and displays any resulting errors to the user.
 
 
 ### Status Bar
 
-[bling/vim-airline](https://github.com/bling/vim-airline): Status line enhancements with buffers listing enabled.
+* [bling/vim-airline](https://github.com/bling/vim-airline): Status line enhancements with buffers listing enabled.
 
 
-### Default Theme
+### Color Scheme
 
-[tomasr/molokai](https://github.com/tomasr/molokai): by far, this is simply the best color scheme I've ever tested that works beautifully on both iTerms & Gvim right out of the box.
+* [tomasr/molokai](https://github.com/tomasr/molokai): by far, this is simply the best color scheme I've ever tested that works beautifully on both iTerms & Gvim right out of the box.
 
 
 
-Mapping
-=======
-* *jj*            \<ESC\>
-* Uses , as \<Leader\>
+Key Mappings
+============
+* *jj*  as \<ESC\>
+* *,*   as \<Leader\>

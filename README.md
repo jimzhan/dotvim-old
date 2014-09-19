@@ -75,8 +75,9 @@ nnoremap <silent> <leader>gr :Gremove<CR>
 
 ### File Editing
 
-* [scrooloose/nerdcommenter](https://github.com/scrooloose/nerdcommenter): help commenting/uncommenting blocks in document.
 * [jiangmiao/auto-pairs](https://github.com/jiangmiao/auto-pairs): insert or delete brackets, parens, quotes in pair.
+* [tpope/vim-surround](https://github.com/tpop/vim-surround): CRUD for parentheses, brackets, quotes, XML tags, and more.
+* [scrooloose/nerdcommenter](https://github.com/scrooloose/nerdcommenter): help commenting/uncommenting blocks in document.
 * [terryma/vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors): multiple selection & editing like Sublime Text.
 * [aperezdc/vim-template](https://github.com/aperezdc/vim-template): allows you to have a set of templates for certain file types.
 

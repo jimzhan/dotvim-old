@@ -17,7 +17,7 @@ Personal Vim Settings.
 
 Run the following line from your terminal
 
-    curl https://raw.github.com/jimzhan/dotvim/master/setup -L -o - | sh
+    curl https://raw.githubusercontent.com/jimzhan/dotvim/master/setup -L -o - | sh
 
 
 ## Notes

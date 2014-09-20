@@ -1,5 +1,5 @@
 """  ------------------------------------------------------------
-" *  @file       vimrc.defaults
+" *  @file       vimrc
 " *  @date       2014
 " *  @author     Jim Zhan <jim.zhan@me.com>
 " *
@@ -26,7 +26,6 @@ source $HOME/.vim/vimrc.settings
 "  Local Settings
 " ---------------------------------------------------------------------------
 colorscheme molokai
-
 
 " ---------------------------------------------------------------------------
 "  READONLY: Post Settings

@@ -56,23 +56,24 @@ autocmd BufReadPost Fugitive://* set bufhidden=delete
 
 
 " ---------------------------------------------------------------------------
-"  File Manager: NERDTree + Ctrlp
+"  File Manager: NERDTree + Ctrlp + ack
 " ---------------------------------------------------------------------------
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'jistr/vim-nerdtree-tabs'
 map <C-o>   <plug>NERDTreeTabsToggle<CR>
-let NERDTreeShowBookmarks = 1
+let NERDTreeShowBookmarks   = 1
+let g:NERDTreeChDirMode     = 2
 let NERDTreeIgnore=['\.DS_Store', '\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
 " ---------------------------------------------------------------------------
 NeoBundle 'kien/ctrlp.vim'
 " Let Ctrlp work under NERDTree opened node.
-let g:NERDTreeChDirMode       = 2
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = {
         \ 'dir':  '\.git$\|\.hg$\|\.svn$',
         \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 " ---------------------------------------------------------------------------
+
 
 
 " ---------------------------------------------------------------------------

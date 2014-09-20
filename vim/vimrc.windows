@@ -17,8 +17,6 @@
 " See the License for the specific language governing permissions and
 " limitations under the License.
 " ------------------------------------------------------------
-
-
 " Windows Compatible
 " ---------------------------------------------------------------------------
 " On Windows, also use '.vim' instead of 'vimfiles'; this makes synchronization

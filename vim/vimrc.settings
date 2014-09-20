@@ -37,23 +37,17 @@ if !has('gui')
 endif
 filetype plugin indent on   " Automatically detect file types.
 syntax on                   " Syntax highlighting
-set mouse=a                 " Automatically enable mouse usage
-set mousehide               " Hide the mouse cursor while typing
 scriptencoding utf-8
 
-if has('clipboard')
-    if has('unnamedplus')  " When possible use + register for copy-paste
-        set clipboard=unnamed,unnamedplus
-    else         " On mac and Windows, use * register for copy-paste
-        set clipboard=unnamed
+if g:dotvim.use_system_clipboard
+    if has('clipboard')
+        if has('unnamedplus')  " When possible use + register for copy-paste
+            set clipboard=unnamed,unnamedplus
+        else         " On mac and Windows, use * register for copy-paste
+            set clipboard=unnamed
+        endif
     endif
 endif
-
-" Most prefer to automatically switch to the current file directory when
-" a new buffer is opened; to prevent this behavior, add the following to
-" your .vimrc file:
-" ---------------------------------------------------------------------------
-"  let g:dotvim.autochdir = 0
 " ---------------------------------------------------------------------------
 if g:dotvim.autochdir
     " Always switch to the current file directory
@@ -164,7 +158,6 @@ nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc':'zo')<CR>
 " ---------------------------------------------------------------------------
 "  Formatting
 " ---------------------------------------------------------------------------
-set nowrap                      " Do not wrap long lines
 set autoindent                  " Indent at the same level of the previous line
 set shiftwidth=4                " Use indents of 4 spaces
 set expandtab                   " Tabs are spaces, not tabs
@@ -176,11 +169,12 @@ set splitbelow                  " Puts new split windows to the bottom of the cu
 "set matchpairs+=<:>             " Match, to be used with %
 set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
 set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
-" Remove trailing whitespaces and ^M chars
-" To disable the stripping of whitespace, add the following to your
-" .vimrc.before.local file:
-"   let g:consts_keep_trailing_whitespace = 1
-autocmd FileType c,cpp,coffee,html,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> if !exists('g:consts_keep_trailing_whitespace') | call dotvim.StripTrailingWhitespace() | endif
+" ---------------------------------------------------------------------------
+if g:dotvim.trailing_whitespace
+    autocmd FileType c,cpp,coffee,html,java,php,javascript,puppet,python,rust,twig,xml,yml,perl 
+            \ autocmd BufWritePre <buffer> call dotvim.StripTrailingWhitespace()
+endif
+" ---------------------------------------------------------------------------
 autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
 autocmd FileType haskell,html,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2
 " preceding line best in a plugin but here for now.

@@ -259,5 +259,5 @@ colorscheme molokai
 " ---------------------------------------------------------------------------
 " Finalize: Post settings & restting colors.
 " ---------------------------------------------------------------------------
-call dotvim.ResetSyntasticColors()
+call dotvim.Finalize()
 

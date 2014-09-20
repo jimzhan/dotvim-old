@@ -1,4 +1,4 @@
-""  ------------------------------------------------------------
+"  ------------------------------------------------------------
 " *  @file       vimrc.consts
 " *  @date       2014
 " *  @author     Jim Zhan <jim.zhan@me.com>
@@ -25,3 +25,4 @@ let g:dotvim.bundle = {}
 let g:dotvim.bundle.Initialized = 1
 
 let g:dotvim.path = {}
+

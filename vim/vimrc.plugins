@@ -140,7 +140,6 @@ au BufRead,BufNewFile *.md set filetype=markdown
 " ---------------------------------------------------------------------------
 NeoBundle 'scrooloose/syntastic'
 hi SyntasticErrorSign ctermfg=196 guifg=#FF0000
-"!hi! link SyntasticErrorSign SignColumn
 let g:syntastic_enable_signs = 1
 let g:syntastic_error_symbol = "✗"
 let g:syntastic_style_error_symbol = "✗>"
@@ -172,9 +171,7 @@ NeoBundle 'Shougo/neocomplete'
 set completeopt-=preview
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
-" Use neocomplete.
 let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
 let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 3

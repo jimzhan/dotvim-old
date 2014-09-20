@@ -1,4 +1,4 @@
-"""  ------------------------------------------------------------
+" ---------------------------------------------------------------------------
 " *  @file       vimrc
 " *  @date       2014
 " *  @author     Jim Zhan <jim.zhan@me.com>
@@ -16,7 +16,7 @@
 " WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 " See the License for the specific language governing permissions and
 " limitations under the License.
-" ------------------------------------------------------------
+" ---------------------------------------------------------------------------
 "  READONLY: Default Settings
 " ---------------------------------------------------------------------------
 source $HOME/.vim/vimrc.settings
@@ -25,3 +25,4 @@ source $HOME/.vim/vimrc.settings
 " ---------------------------------------------------------------------------
 "  Local Settings
 " ---------------------------------------------------------------------------
+

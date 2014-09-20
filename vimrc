@@ -17,17 +17,18 @@
 " See the License for the specific language governing permissions and
 " limitations under the License.
 " ------------------------------------------------------------
-
-
+"  READONLY: Default Settings
 " ---------------------------------------------------------------------------
-"  Default Settings
-" ---------------------------------------------------------------------------
-source $HOME/.vim/vimrc.defaults
+source $HOME/.vim/vimrc.settings
 
 
 " ---------------------------------------------------------------------------
 "  Local Settings
 " ---------------------------------------------------------------------------
 colorscheme molokai
-"colorscheme base16-tomorrow
 
+
+" ---------------------------------------------------------------------------
+"  READONLY: Post Settings
+" ---------------------------------------------------------------------------
+call dotvim.ResetSyntasticColors()

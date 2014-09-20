@@ -30,6 +30,15 @@ NeoBundle 'Shougo/vimproc', {
 
 
 " ---------------------------------------------------------------------------
+"  Themes: Color Themes
+" ---------------------------------------------------------------------------
+NeoBundle 'tomasr/molokai'
+let g:rehash256=1
+let g:molokai_original = 1
+" ---------------------------------------------------------------------------
+
+
+" ---------------------------------------------------------------------------
 "  GIT Manager: Fugitive + GitGutter
 " ---------------------------------------------------------------------------
 NeoBundle 'tpope/vim-fugitive'
@@ -76,9 +85,10 @@ NeoBundle 'scrooloose/nerdcommenter'
 "  Status: Status Line Enhancement
 " ---------------------------------------------------------------------------
 NeoBundle 'bling/vim-airline'
+"let g:airline_theme='badwolf'
 let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
-"let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 
 
@@ -125,15 +135,15 @@ au BufRead,BufNewFile *.md set filetype=markdown
 "  Syntax: Static Syntax Checking
 " ---------------------------------------------------------------------------
 NeoBundle 'scrooloose/syntastic'
-hi SyntasticErrorSign guifg=red ctermfg=red
-hi! link SyntasticErrorSign SignColumn
+hi SyntasticErrorSign ctermfg=196 guifg=#FF0000
+"!hi! link SyntasticErrorSign SignColumn
 let g:syntastic_enable_signs = 1
 let g:syntastic_error_symbol = "✗"
 let g:syntastic_style_error_symbol = "✗>"
 let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_check_on_open = 1
 " Note that Vim must be compiled with |+balloon_eval|.
-let g:syntastic_enable_balloons = 1
+"let g:syntastic_enable_balloons = 1
 
 
 " ---------------------------------------------------------------------------
@@ -200,21 +210,13 @@ NeoBundle 'aperezdc/vim-template'
 let g:template_dir = expand('~/.vim/templates')
 
 
-" ---------------------------------------------------------------------------
-"  Themes: Color Themes
-" ---------------------------------------------------------------------------
-NeoBundle 'tomasr/molokai'
-let g:rehash256=1
-let g:molokai_original = 1
-" ---------------------------------------------------------------------------
-
 
 
 " ***************************************************************************
 "  Functions: Plugins Helpers
 " ***************************************************************************
-nnoremap <Leader>nt     :call ToggleNERDTreeAndTagbar()<CR>
-function! ToggleNERDTreeAndTagbar()
+nnoremap <Leader>nt     :call dotvim.ToggleNERDTreeAndTagbar()<CR>
+function! dotvim.ToggleNERDTreeAndTagbar()
     let w:jumpbacktohere = 1
 
     " Detect which plugins are open
@@ -246,4 +248,11 @@ function! ToggleNERDTreeAndTagbar()
             break
         endif
     endfor
+endfunction
+
+
+function! dotvim.ResetSyntasticColors()
+    exec 'hi SyntasticErrorSign guifg=#FF0000 ctermfg=196' .
+            \' guibg=' . synIDattr(synIDtrans(hlID('SignColumn')), 'bg', 'gui') .
+            \' ctermbg=' . synIDattr(synIDtrans(hlID('SignColumn')), 'bg', 'cterm')
 endfunction

@@ -135,17 +135,7 @@ if has('cmdline_info')
                                 " Selected characters/lines in visual mode
 endif
 
-if has('statusline')
-    set laststatus=2
-    " Broken down into easily includeable segments
-    set statusline=%<%f\                     " Filename
-    set statusline+=%w%h%m%r                 " Options
-    set statusline+=%{fugitive#statusline()} " Git Hotness
-    set statusline+=\ [%{&ff}/%Y]            " Filetype
-    set statusline+=\ [%{getcwd()}]          " Current dir
-    set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
-endif
-
+set laststatus=2                " For vim-airline
 set backspace=indent,eol,start  " Backspace for dummies
 set linespace=0                 " No extra spaces between rows
 set nu                          " Line numbers on
@@ -258,3 +248,9 @@ endif
 " Plugins Manager: Setup Plugins Support.
 " ---------------------------------------------------------------------------
 call dotvim.InitializePlugins(expand('~/.vimrc.plugins'))
+
+
+
+" ---------------------------------------------------------------------------
+" Color Theme: Molokia with custom error sign symbol.
+" ---------------------------------------------------------------------------

@@ -129,7 +129,6 @@ endif
 " ---------------------------------------------------------------------------
 NeoBundle 'fatih/vim-go'
 let g:go_fmt_command = "goimports"
-let g:go_snippet_engine = "neosnippet"
 " ---------------------------------------------------------------------------
 NeoBundle 'tpope/vim-markdown'
 au BufRead,BufNewFile *.md set filetype=markdown
@@ -170,10 +169,11 @@ NeoBundle 'terryma/vim-multiple-cursors'
 
 " ---------------------------------------------------------------------------
 NeoBundle 'SirVer/ultisnips'
+NeoBundle 'honza/vim-snippets', {'depends': 'SirVer/ultisnips'}
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 " ---------------------------------------------------------------------------
 
 

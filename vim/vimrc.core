@@ -17,9 +17,18 @@
 " See the License for the specific language governing permissions and
 " limitations under the License.
 " ------------------------------------------------------------
-if !exists('g:dotvim')
-    let g:dotvim = {}
-endif
+"  Constants
+" ---------------------------------------------------------------------------
+let g:dotvim = {}
+let g:dotvim.autochdir = 1
+let g:dotvim.restore_cursor = 1
+let g:dotvim.trailing_whitespace = 1
+let g:dotvim.use_system_clipboard = 0
+
+let g:dotvim.bundle = {}
+let g:dotvim.bundle.Initialized = 1
+
+let g:dotvim.path = {}
 " ---------------------------------------------------------------------------
 "  Functions
 " ---------------------------------------------------------------------------

@@ -21,8 +21,7 @@
 " ---------------------------------------------------------------------------
 set nocompatible
 set background=dark
-source $HOME/.vim/vimrc.consts
-source $HOME/.vim/vimrc.functions
+source $HOME/.vim/vimrc.core
 if has('win32') || has('win64')
     source $HOME/.vim/vimrc.windows
 endif

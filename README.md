@@ -71,7 +71,8 @@ nnoremap <silent> <leader>gr :Gremove<CR>
 
 ### Autocomplete
 
-* [Shougo/neocomplete](https://github.com/Shougo/neocomplete.vim) + [Shougo/neosnippet](https://github.com/Shougo/neosnippet.vim): lightweight (especially comparing to [YCM](https://github.com/Valloric/YouCompleteMe), compiled size: 175MB on my laptop...) yet powerful. (Required Vim with lua compiled)
+* [Shougo/neocomplete](https://github.com/Shougo/neocomplete.vim): lightweight (especially comparing to [YCM](https://github.com/Valloric/YouCompleteMe), compiled size: 175MB on my laptop...) yet powerful. (Required Vim with lua compiled)
+* [SirVer/ultisnips](https://github.com/SirVer/ultisnips): as its name, ultimate solution for snippets in Vim.
 
 
 ### File Editing

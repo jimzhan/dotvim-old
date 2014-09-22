@@ -145,8 +145,9 @@ let g:syntastic_error_symbol = "✗"
 let g:syntastic_style_error_symbol = "✗>"
 let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_check_on_open = 1
-" Note that Vim must be compiled with |+balloon_eval|.
-"let g:syntastic_enable_balloons = 1
+if has('balloon_eval')
+    let g:syntastic_enable_balloons = 1
+endif
 
 
 " ---------------------------------------------------------------------------
@@ -154,7 +155,7 @@ let g:syntastic_check_on_open = 1
 "   * Emmet: previously known as Zen Coding is a web-developer’s toolkit that
 "           can greatly improve HTML/CSS workflow by combining shortcuts & snippets.
 "   * Surround: CRUD for parentheses, brackets, quotes, XML tags, and more.
-"   * Autoclose: Insert or delete brackets, parens, quotes in pair.
+"   * AutoPairs: Insert or delete brackets, parens, quotes in pair.
 "   * Multiple Curosr: Multiple selection/editing like Sublime Text.
 " ---------------------------------------------------------------------------
 NeoBundle 'mattn/emmet-vim'
@@ -166,14 +167,31 @@ NeoBundle 'terryma/vim-multiple-cursors'
 " ---------------------------------------------------------------------------
 "  Authocomplete: Autocomplete & Code Snippets
 " ---------------------------------------------------------------------------
-
+NeoBundle 'Shougo/neocomplete'
+set completeopt-=preview
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'"
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+inoremap <expr><TAB>    pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><CR>     pumvisible() ? neocomplete#close_popup() : "\<CR>"
 " ---------------------------------------------------------------------------
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets', {'depends': 'SirVer/ultisnips'}
 let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-n>"
-let g:UltiSnipsJumpBackwardTrigger="<c-p>"
+let g:UltiSnipsExpandTrigger="<TAB>"
+let g:UltiSnipsJumpForwardTrigger="<TAB>"
+let g:UltiSnipsJumpBackwardTrigger="<S-TAB>"
+let g:UltiSnipsRemoveSelectModeMappings = 0
+let g:ultisnips_python_style = "google"     " Available Styles: doxygen | sphinx | google
 " ---------------------------------------------------------------------------
 
 

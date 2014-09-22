@@ -19,6 +19,7 @@
 " ------------------------------------------------------------
 "  Fundamental Envionment
 " ---------------------------------------------------------------------------
+NeoBundle 'yonchu/accelerated-smooth-scroll'
 NeoBundle 'Shougo/vimproc', {
 \ 'build' : {
 \     'windows' : 'tools\\update-dll-mingw',
@@ -167,7 +168,6 @@ NeoBundle 'terryma/vim-multiple-cursors'
 "  Authocomplete: Autocomplete & Code Snippets
 " ---------------------------------------------------------------------------
 NeoBundle 'Shougo/neocomplete'
-" Disable preview buffer at the bottom
 set completeopt-=preview
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0

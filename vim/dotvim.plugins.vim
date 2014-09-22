@@ -167,41 +167,13 @@ NeoBundle 'terryma/vim-multiple-cursors'
 " ---------------------------------------------------------------------------
 "  Authocomplete: Autocomplete & Code Snippets
 " ---------------------------------------------------------------------------
-NeoBundle 'Shougo/neocomplete'
-set completeopt-=preview
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'"
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-inoremap <expr><TAB>    pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><CR>     pumvisible() ? neocomplete#close_popup() : "\<CR>"
+
 " ---------------------------------------------------------------------------
-NeoBundle 'Shougo/neosnippet'
-let g:neosnippet#enable_snipmate_compatibility = 1
-let g:neosnippet#snippets_directory='$HOME/.vim/snippets'
-"let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets,~/.vim/snippets'
-imap <C-\>     <Plug>(neosnippet_expand_or_jump)
-smap <C-\>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-\>     <Plug>(neosnippet_expand_target)
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-    \ "\<Plug>(neosnippet_expand_or_jump)"
-    \: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-    \ "\<Plug>(neosnippet_expand_or_jump)"
-    \: "\<TAB>"
-" For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
+NeoBundle 'SirVer/ultisnips'
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " ---------------------------------------------------------------------------
 
 

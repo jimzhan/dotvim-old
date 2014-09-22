@@ -21,9 +21,9 @@
 " ---------------------------------------------------------------------------
 set nocompatible
 set background=dark
-source $HOME/.vim/vimrc.core
+source $HOME/.vim/dotvim.core.vim
 if has('win32') || has('win64')
-    source $HOME/.vim/vimrc.windows
+    source $HOME/.vim/dotvim.windows.vim
 endif
 
 
@@ -253,4 +253,3 @@ colorscheme molokai
 " Finalize: Post settings & restting colors.
 " ---------------------------------------------------------------------------
 call dotvim.Finalize()
-

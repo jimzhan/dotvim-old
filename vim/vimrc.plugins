@@ -181,6 +181,9 @@ if !exists('g:neocomplete#keyword_patterns')
     let g:neocomplete#keyword_patterns = {}
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+inoremap <expr><TAB>    pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><CR>     pumvisible() ? neocomplete#close_popup() : "\<CR>"
+"inoremap <expr><SPACE>  pumvisible() ? neocomplete#close_popup() : "\<SPACE>"
 " ---------------------------------------------------------------------------
 NeoBundle 'Shougo/neosnippet'
 let g:neosnippet#enable_snipmate_compatibility = 1

@@ -19,6 +19,7 @@
 " ------------------------------------------------------------
 "  Fundamental Envionment
 " ---------------------------------------------------------------------------
+NeoBundle 'mattn/webapi-vim'
 NeoBundle 'yonchu/accelerated-smooth-scroll'
 NeoBundle 'Shougo/vimproc', {
 \ 'build' : {
@@ -43,6 +44,7 @@ let g:molokai_original = 1
 "  GIT Manager: Fugitive + GitGutter
 " ---------------------------------------------------------------------------
 NeoBundle 'tpope/vim-fugitive'
+" ---------------------------------------------------------------------------
 NeoBundle 'airblade/vim-gitgutter'
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gd :Gdiff<CR>
@@ -53,6 +55,9 @@ nnoremap <silent> <leader>gp :Git push<CR>
 nnoremap <silent> <leader>gw :Gwrite<CR>
 nnoremap <silent> <leader>gr :Gremove<CR>
 autocmd BufReadPost Fugitive://* set bufhidden=delete
+" ---------------------------------------------------------------------------
+NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
+" ---------------------------------------------------------------------------
 
 
 

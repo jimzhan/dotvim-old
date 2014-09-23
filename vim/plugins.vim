@@ -133,7 +133,6 @@ endif
 "  Languages: Golang Supports
 " ---------------------------------------------------------------------------
 NeoBundle 'fatih/vim-go'
-let g:go_fmt_command = "goimports"
 " ---------------------------------------------------------------------------
 NeoBundle 'tpope/vim-markdown'
 au BufRead,BufNewFile *.md set filetype=markdown

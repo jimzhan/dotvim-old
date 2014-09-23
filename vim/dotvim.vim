@@ -1,5 +1,5 @@
 ""  ------------------------------------------------------------
-" *  @file       vimrc.settings
+" *  @file       dotvim.vim
 " *  @date       2014
 " *  @author     Jim Zhan <jim.zhan@me.com>
 " *

@@ -189,7 +189,7 @@ function! dotvim.InitializePlugins(config)
     set runtimepath+=~/.vim/bundle/neobundle.vim/
     call neobundle#begin(expand('~/.vim/bundle/'))
     NeoBundleFetch 'Shougo/neobundle.vim'
-    source ~/.vim/dotvim.plugins.vim
+    source ~/.vim/plugins.vim
     if filereadable(a:config)
         source a:config
     endif

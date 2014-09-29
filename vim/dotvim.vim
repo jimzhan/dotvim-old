@@ -17,7 +17,7 @@
 " See the License for the specific language governing permissions and
 " limitations under the License.
 " ------------------------------------------------------------
-"  Enviroment
+"  Environment
 " ---------------------------------------------------------------------------
 set nocompatible
 set background=dark
@@ -190,12 +190,12 @@ set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
 set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
 " ---------------------------------------------------------------------------
 if g:dotvim.trailing_whitespace
-    autocmd FileType c,cpp,coffee,html,java,php,javascript,puppet,python,rust,twig,xml,yml,perl 
+    autocmd FileType c,cpp,coffee,html,java,php,javascript,puppet,python,rust,twig,xml,yml,perl
             \ autocmd BufWritePre <buffer> call dotvim.StripTrailingWhitespace()
 endif
 " ---------------------------------------------------------------------------
 autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
-autocmd FileType haskell,html,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType css,haskell,html,js,puppet,ruby,sass,scss,yml setlocal expandtab shiftwidth=2 softtabstop=2
 " preceding line best in a plugin but here for now.
 
 autocmd BufNewFile,BufRead *.coffee set filetype=coffee

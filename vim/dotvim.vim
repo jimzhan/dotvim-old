@@ -20,7 +20,6 @@
 "  Environment
 " ---------------------------------------------------------------------------
 set nocompatible
-set background=dark
 source $HOME/.vim/foundation.vim
 " ------------------------------------------------------------
 " Windows Compatible

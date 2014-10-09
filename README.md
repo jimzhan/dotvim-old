@@ -11,10 +11,12 @@ Prerequisites
 * Updated Vim Version
 * Build Tools Supports
 
-    brew install cmake ctags
-    brew install macvim --with-cscope --with-lua
-    brew install vim --with-lua --override-system-vim
-    brew linkapps
+```sh
+brew install cmake ctags
+brew install macvim --with-cscope --with-lua
+brew install vim --with-lua --override-system-vim
+brew linkapps
+```
 
 [Issues with MacVim](https://github.com/b4winckler/macvim/wiki/Troubleshooting)
 
@@ -24,7 +26,9 @@ Install
 
 Run the following line from your terminal
 
-    curl https://raw.githubusercontent.com/jimzhan/dotvim/master/setup -L -o - | sh
+```sh
+curl https://raw.githubusercontent.com/jimzhan/dotvim/master/setup -L -o - | sh
+```
 
 
 Preview
@@ -46,7 +50,7 @@ Plugins
 
 * [scrooloose/nerdtree](https://github.com/scrooloose/nerdtree): IDE-liked file manager.
 
-```bash
+```sh
 map <C-o>   <plug>NERDTreeTabsToggle<CR>
 ```
 
@@ -59,7 +63,7 @@ map <C-o>   <plug>NERDTreeTabsToggle<CR>
 * [airblade/vim-gitgutter](https://github.com/airblade/vim-gitgutter): shows whether each line has been added, modified, and where lines have been removed.
 * [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive): the best GIT plugin for Vim with shortcuts.
 
-```bash
+```sh
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gd :Gdiff<CR>
 nnoremap <silent> <leader>gc :Gcommit<CR>

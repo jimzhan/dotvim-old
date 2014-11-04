@@ -147,8 +147,9 @@ NeoBundle 'fatih/vim-go'
 NeoBundle 'tpope/vim-markdown'
 au BufRead,BufNewFile *.md set filetype=markdown
 " ---------------------------------------------------------------------------
-" Jinja
+" HTML5 + Jinja
 " ---------------------------------------------------------------------------
+NeoBundle 'othree/html5.vim'
 NeoBundle 'lepture/vim-jinja'
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
 " ---------------------------------------------------------------------------

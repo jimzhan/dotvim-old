@@ -3,9 +3,9 @@
  *  @project
  *  @file       %FFILE%
  *  @date       %DATE%
- *  @author     Jim Zhan <jim.zhan@me.com>
+ *  @author     GoAnywhere Ltd.
  *
- *  Copyright © %YEAR% Jim Zhan.
+ *  Copyright © %YEAR% GoAnywhere Ltd. All Rights Reserved.
  *  ------------------------------------------------------------
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -20,4 +20,4 @@
  *  limitations under the License.
  *  ------------------------------------------------------------
  */
-%HERE%
+package %HERE%

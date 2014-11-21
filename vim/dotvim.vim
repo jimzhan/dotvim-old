@@ -224,7 +224,8 @@ nmap <leader>9 :set foldlevel=9<CR>
 " Buffer Switching
 :nmap <C-l>     :bnext<CR>
 :nmap <C-h>     :bprevious<CR>
-:nmap <C-k>     :bdelete<CR>
+" Plugin 'moll/vim-bbye' here to avoid closing window unexpectedly.
+:nmap <C-k>     :Bdelete<CR>
 " Tabs
 :nmap <S-t>     :tabnew<CR>
 :nmap <S-w>     :tabclose<CR>

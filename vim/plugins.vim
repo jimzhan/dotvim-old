@@ -29,7 +29,7 @@ NeoBundle 'Shougo/vimproc', {
 \     'unix' : 'make -f make_unix.mak',
 \    },
 \ }
-
+NeoBundle 'moll/vim-bbye'
 
 " ---------------------------------------------------------------------------
 "  Themes: Color Themes
@@ -114,7 +114,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 if executable('ctags')
     NeoBundle 'majutsushi/tagbar'
     let g:tagbar_width=30
-    autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx,*.go call tagbar#autoopen()
+    "autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx,*.go call tagbar#autoopen()
     nnoremap <silent> <Leader>tt :TagbarToggle<CR>
     " If using go please install the gotags program using the following
     " go install github.com/jstemmer/gotags

@@ -1,5 +1,5 @@
 "  ------------------------------------------------------------
-" *  @file       dotvim.plugins.vim
+" *  @file       plugins.vim
 " *  @date       2014
 " *  @author     Jim Zhan <jim.zhan@me.com>
 " *
@@ -193,22 +193,18 @@ NeoBundle 'terryma/vim-multiple-cursors'
 " ---------------------------------------------------------------------------
 "  Authocomplete: Autocomplete & Code Snippets
 " ---------------------------------------------------------------------------
-NeoBundle 'Shougo/neocomplete'
-set completeopt-=preview
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'"
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-inoremap <expr><TAB>    pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><CR>     pumvisible() ? neocomplete#close_popup() : "\<CR>"
+" Installation of YCM
+" -------
+" * git clone https://github.com/Valloric/YouCompleteMe ~/.dotvim/vim/bundle/
+" * cd ~/.dotvim/vim/bundle/YouCompleteMe/
+" * git submodule update --init --recursive
+" * ./install.sh --clang-completer
+" Update
+" -------
+"  * git pull
+"  * git submodule foreach git pull
+" * ./install.sh --clang-completer
+NeoBundle "Valloric/YouCompleteMe"
 " ---------------------------------------------------------------------------
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets', {'depends': 'SirVer/ultisnips'}
